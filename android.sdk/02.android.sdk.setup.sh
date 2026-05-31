@@ -244,9 +244,11 @@ install() {
     
     # Download and extract SDK
     download_and_extract "$SDK_URL" "$INSTALL_DIR"
+    [ -d "$INSTALL_DIR/android-sdk" ] && mv "$INSTALL_DIR/android-sdk" "$SDK_DIR"
     
     # Download and extract NDK
     download_and_extract "$NDK_URL" "$INSTALL_DIR"
+    [ -d "$INSTALL_DIR/android-ndk" ] && mv "$INSTALL_DIR/android-ndk" "$NDK_DIR"
     
     # Setup environment
     setup_environment
