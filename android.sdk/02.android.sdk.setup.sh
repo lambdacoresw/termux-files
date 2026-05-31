@@ -185,10 +185,11 @@ verify_installation() {
         echo "javac -version"
         
     else
-        log_error "Installation verification failed"
-        echo "SDK exists: $( [ -d "$SDK_DIR" ] && echo "Yes" || echo "No" )"
-        echo "NDK exists: $( [ -d "$NDK_DIR" ] && echo "Yes" || echo "No" )"
-        echo "Java exists: $( [ -d "$JAVA_HOME_DIR" ] && echo "Yes" || echo "No" )"
+        echo -e "${RED}[ERROR] Installation verification failed${NC}"
+        echo "SDK exists: $( [ -d "$SDK_DIR" ] && echo "Yes" || echo "No" ) ($SDK_DIR)"
+        echo "NDK exists: $( [ -d "$NDK_DIR" ] && echo "Yes" || echo "No" ) ($NDK_DIR)"
+        echo "Java exists: $( [ -d "$JAVA_HOME_DIR" ] && echo "Yes" || echo "No" ) ($JAVA_HOME_DIR)"
+        exit 1
     fi
 }
 
