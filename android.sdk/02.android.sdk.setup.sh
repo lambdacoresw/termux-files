@@ -229,6 +229,7 @@ install() {
     
     # Create install directory
     mkdir -p "$INSTALL_DIR"
+    chmod 777 "$INSTALL_DIR"
     
     # Remove existing installations if they exist
     if [ -d "$SDK_DIR" ]; then
